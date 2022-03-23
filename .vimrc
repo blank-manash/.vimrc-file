@@ -11,6 +11,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
+set wildmenu
+set showcmd
+set rnu
 autocmd BufRead,BufNewFile *.md,*.txt setlocal wrap
 set noswapfile
 set mouse=a
@@ -43,5 +46,3 @@ filetype plugin indent on    " required
 colo lucid
 set background=dark
 map <Leader>nt :NERDTree<CR>
-nnoremap <SPACE> <Nop>
-let mapleader = " "
