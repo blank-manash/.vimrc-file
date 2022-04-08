@@ -40,6 +40,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'liuchengxu/vim-which-key'
+Plugin 'sheerun/vim-polyglot'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -51,10 +52,9 @@ autocmd BufWritePost .vimrc source %
 "Vim Mappings
 colo lucid
 set background=dark
-map <Leader>nt :NERDTree<CR>
-map <Leader>fz :Files<CR>
-map <Leader>mr :FZFMru<CR>
-map <Leader>li :Lines<CR>
+nmap <Leader>nt :NERDTree<CR>
+nmap <Leader>fz :Files<CR>
+nmap <Leader>mr :FZFMru<CR>
 
 "Scripts
 set statusline+=%{gutentags#statusline()}
