@@ -1,4 +1,5 @@
 set nocompatible
+set showcmd
 set number
 set hlsearch
 set ignorecase
@@ -11,10 +12,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set nowrap
-set wildmenu
-set showcmd
-set rnu
 autocmd BufRead,BufNewFile *.md,*.txt setlocal wrap
+autocmd filetype markdown set spell 
 set noswapfile
 set mouse=a
 set showmatch
@@ -27,22 +26,40 @@ filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'cseelus/vim-colors-lucid'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'mboughaba/i3config.vim'
+Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'pbogut/fzf-mru.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'liuchengxu/vim-which-key'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+"Addtional
+set encoding=UTF-8
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd BufWritePost .vimrc source %
 "Vim Mappings
 colo lucid
 set background=dark
 map <Leader>nt :NERDTree<CR>
+map <Leader>fz :Files<CR>
+map <Leader>mr :FZFMru<CR>
+map <Leader>li :Lines<CR>
+
+"Scripts
+set statusline+=%{gutentags#statusline()}
+"Gutentags
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
