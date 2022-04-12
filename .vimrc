@@ -22,6 +22,7 @@ set splitright splitbelow
 set autoindent
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+set path += ** "Gives <C-x><C-f> Files Completion
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
