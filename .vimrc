@@ -39,7 +39,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
 "Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'liuchengxu/vim-which-key'
-Plugin 'sheerun/vim-polyglot'
+Plugin 'sheerun/vim-polyglot' "Syntax Highlighting for all files
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -58,7 +58,7 @@ nmap <Leader>fi :Files<CR>
 nmap <Leader>mr :FZFMru<CR>
 
 "Scripts
-set statusline+=%{gutentags#statusline()}
+"set statusline+=%{gutentags#statusline()}
 "Gutentags
 "let g:gutentags_generate_on_new = 1
 "let g:gutentags_generate_on_missing = 1
