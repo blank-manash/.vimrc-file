@@ -57,15 +57,15 @@ Plug 'ludovicchabant/vim-gutentags' "Requires Uni/Ex Ctags
 Plug 'sheerun/vim-polyglot'
 call plug#end()            " required
 filetype plugin indent on    " required
-let mapleader = ","
+
 "
-colo lucid
+
+if !empty(glob('~/.vim/plugged/vim-colors-lucid/'))
+    colo lucid
+endif
 
 "Addtional
 set encoding=UTF-8
-" Open the existing NERDTree on each new tab. If you have NerdTree Ofcourse.
-" Default is No you don't.
-"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 if !has("nvim")
     autocmd BufWritePost .vimrc source % | mark V
 endif
@@ -75,9 +75,14 @@ set background=dark
 nmap <Leader>nt :Lex<CR>
 nmap <Leader>fi :Files<CR>
 nmap <Leader>mr :FZFMru<CR>
-nnoremap <Leader>pin :PluginInstall<CR>
+nnoremap <Leader>pin :PlugInstall<CR>
+let mapleader = ","
+inoremap jk <Esc>
 "Scripts
-set statusline+=%{gutentags#statusline()}
+if !empty(glob('~/.vim/plugged/vim-gutentags/'))
+  set statusline+=%{gutentags#statusline()}
+endif
+
 "FZF Ubiquitos
 let $FZF_DEFAULT_COMMAND = 'find .'
 "
@@ -99,3 +104,4 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 17
+
