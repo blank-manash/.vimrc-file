@@ -27,10 +27,9 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'cseelus/vim-colors-lucid'
+Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'iamcco/markdown-preview.nvim'
@@ -38,7 +37,7 @@ Plugin 'pbogut/fzf-mru.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf'
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'liuchengxu/vim-which-key'
 Plugin 'sheerun/vim-polyglot'
 call vundle#end()            " required
@@ -47,19 +46,21 @@ filetype plugin indent on    " required
 "Addtional
 set encoding=UTF-8
 " Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-autocmd BufWritePost .vimrc source %
+"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+if !has("nvim")
+    autocmd BufWritePost .vimrc source %
+endif
 "Vim Mappings
 colo lucid
 set background=dark
-nmap <Leader>nt :NERDTree<CR>
-nmap <Leader>fz :Files<CR>
+nmap <Leader>nt :Explore<CR>
+nmap <Leader>fi :Files<CR>
 nmap <Leader>mr :FZFMru<CR>
 
 "Scripts
 set statusline+=%{gutentags#statusline()}
 "Gutentags
-let g:gutentags_generate_on_new = 1
-let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_empty_buffer = 0
+"let g:gutentags_generate_on_new = 1
+"let g:gutentags_generate_on_missing = 1
+"let g:gutentags_generate_on_write = 1
+"let g:gutentags_generate_on_empty_buffer = 0
