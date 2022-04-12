@@ -25,26 +25,37 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'cseelus/vim-colors-lucid'
-Plugin 'tpope/vim-surround'
-Plugin 'mboughaba/i3config.vim'
-Plugin 'iamcco/markdown-preview.nvim'
-Plugin 'pbogut/fzf-mru.vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'vifm/vifm.vim'
-Plugin 'ludovicchabant/vim-gutentags' "Requires Uni/Ex Ctags
-"Plugin 'liuchengxu/vim-which-key'
-Plugin 'sheerun/vim-polyglot'
-call vundle#end()            " required
+
+"AutoInstalltion of Plugins
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'tpope/vim-surround'
+Plug 'mboughaba/i3config.vim'
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'pbogut/fzf-mru.vim'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'vifm/vifm.vim'
+Plug 'ludovicchabant/vim-gutentags' "Requires Uni/Ex Ctags
+"Plug 'liuchengxu/vim-which-key'
+Plug 'sheerun/vim-polyglot'
+call plug#end()            " required
 filetype plugin indent on    " required
 let mapleader = ","
 "
