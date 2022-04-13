@@ -7,5 +7,5 @@ Use the script to configure.
 You can find your older configs in the name of `.vimbackup`
 
 ```
-bash -c "curl -fsSL https://raw.githubusercontent.com/blank-manash/.vimrc-file/main/vimrc.sh"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/blank-manash/.vimrc-file/main/vimrc.sh)"
 ```
