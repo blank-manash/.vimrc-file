@@ -51,6 +51,7 @@ Plug 'junegunn/fzf'
 Plug 'vifm/vifm.vim'
 Plug 'ludovicchabant/vim-gutentags' "Requires Uni/Ex Ctags
 "Plug 'liuchengxu/vim-which-key'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'sheerun/vim-polyglot'
 call plug#end()            " required
 filetype plugin indent on    " required
