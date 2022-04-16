@@ -1,5 +1,6 @@
 set nocompatible
 set showcmd
+let mapleader = ","
 set number
 set hlsearch
 set ignorecase
@@ -42,6 +43,8 @@ Plug 'vim-airline/vim-airline'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cseelus/vim-colors-lucid'
 Plug 'tpope/vim-surround'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'mboughaba/i3config.vim'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'pbogut/fzf-mru.vim'
@@ -51,7 +54,6 @@ Plug 'junegunn/fzf'
 Plug 'vifm/vifm.vim'
 Plug 'ludovicchabant/vim-gutentags' "Requires Uni/Ex Ctags
 "Plug 'liuchengxu/vim-which-key'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'sheerun/vim-polyglot'
 call plug#end()            " required
 filetype plugin indent on    " required
@@ -64,7 +66,7 @@ endif
 
 "Addtional
 set encoding=UTF-8
-autocmd BufWritePost .vimrc source % | mark V
+autocmd BufWritePost .vimrc source % | mark V | if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | PlugInstall --sync | source $HOME/.vimrc | endif
 
 "Vim Mappings
 set background=dark
@@ -72,7 +74,6 @@ nmap <Leader>nt :Lex<CR>
 nmap <Leader>fi :Files<CR>
 nmap <Leader>mr :FZFMru<CR>
 nnoremap <Leader>pin :PlugInstall<CR>
-let mapleader = ","
 inoremap jk <Esc>
 
 command! Sq :Startify
