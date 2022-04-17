@@ -42,6 +42,7 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cseelus/vim-colors-lucid'
+Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -60,9 +61,7 @@ filetype plugin indent on    " required
 
 "
 
-if !empty(glob('~/.vim/plugged/vim-colors-lucid/'))
-    colo lucid
-endif
+colo jellybeans
 
 "Addtional
 set encoding=UTF-8
